@@ -186,3 +186,12 @@ Now the flow of serialization-deserialization will be:
 
 <class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>
 Magic right?
+17. Unittests for the Console!
+#advanced
+Write all unittests for console.py, all features!
+
+For testing the console, you should “intercept” STDOUT of it, we highly recommend you to use:
+
+with patch('sys.stdout', new=StringIO()) as f:
+    HBNBCommand().onecmd("help show")
+Otherwise, you will have to re-write the console by replacing precmd by default.
